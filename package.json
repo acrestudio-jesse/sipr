@@ -1,0 +1,15 @@
+{
+  "name": "sipr",
+  "version": "1.0.0",
+  "description": "drink randomizer",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "sipr"
+  },
+  "author": "Jesse T. Hickey",
+  "license": "ISC"
+}
