@@ -6,7 +6,7 @@ const rerollBtn = document.querySelector(".reroll");
 const getDrink = async function () {
   try {
     const response = await fetch(
-      "http://www.thecocktaildb.com/api/json/v1/1/random.php"
+      "https://www.thecocktaildb.com/api/json/v1/1/random.php"
     );
     const data = await response.json();
     const { drinks } = data;
