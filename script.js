@@ -2,6 +2,8 @@ const ingredientsList = document.querySelector(".ings");
 const measureList = document.querySelector(".meas");
 const drinkName = document.querySelector(".drink-name");
 const rerollBtn = document.querySelector(".reroll");
+const instructions =  document.querySelector(".instr")
+
 
 const getDrink = async function () {
   try {
@@ -20,7 +22,8 @@ const getDrink = async function () {
 
     //Reset Ingredients on Reload
     ingredientsList.innerHTML = "";
-    measureList.innerHTML = "";
+    const ingMeasArr =[]
+    console.log(ingredientsList);
 
     //BG Img
     document.body.style.backgroundImage = `url(${drinks[0].strDrinkThumb})`;
@@ -31,13 +34,20 @@ const getDrink = async function () {
     //Render Ings
     ingredients.forEach((ing) => {
       if (!ing[1]) return;
-      ingredientsList.insertAdjacentHTML("beforeend", `<li>${ing[1]}</li>`);
+      ingMeasArr.push([ing[1]]);
     });
 
-    measurements.forEach((meas) => {
+    measurements.forEach((meas, i) => {
       if (!meas[1]) return;
-      measureList.insertAdjacentHTML("beforeend", `<li>${meas[1]}</li>`);
+      ingMeasArr[i].push(meas[1]);
     });
+
+  ingMeasArr.forEach(entry => {
+    ingredientsList.insertAdjacentHTML("beforeend", `<li>${entry[1]? entry[1]: ""} ${entry[0]}</li>`)
+  })
+
+  console.log(drink);
+instructions.textContent = drink.strInstructions
   } catch (err) {
     console.log(`🦜 Bird Problem: ${err}`);
   }
